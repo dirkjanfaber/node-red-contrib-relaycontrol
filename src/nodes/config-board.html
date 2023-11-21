@@ -1,0 +1,80 @@
+<script type="text/javascript">
+    function checkManufacturerSettings() {
+
+        ["devantech", "teracom"].forEach(
+            function(manufacturer) {
+                $('#input-'+manufacturer).hide()
+                if ($('select#node-config-input-manufacturer').val() === manufacturer) {
+                    $('#input-'+manufacturer).show()
+                }
+            }
+        )
+    }
+
+    checkManufacturerSettings()
+
+    RED.nodes.registerType('config-relay-board',{
+        category: 'config',
+        defaults: {
+            name: { value: "" },
+            manufacturer: { value: "", required: true },
+            host: { value: "", required: true },
+            port: { value: "" },
+            user: { value: "" },
+            password: { value: ""},
+        },
+        label: function() {
+            return this.manufacturer + ': ' + ( this.name || 'Relay board config');
+        }
+    });
+</script>
+
+<script type="text/html" data-template-name="config-relay-board">
+    <div class="form-row">
+        <label for="node-config-input-name"><i class="fa fa-tag"></i> Name</label>
+        <input type="text" id="node-config-input-name" placeholder="Name">
+    </div>
+    <div class="form-row">
+        <label for="node-config-input-manufacturer"><i class="fa fa-industry"></i> Manufacturer</label>
+        <select id="node-config-input-manufacturer" required onchange="checkManufacturerSettings()">
+            <option value="devantech">Devantech</option>
+            <option value="shelly">Shelly</option>
+            <option value="teracom">Teracom</option>
+        </select>
+    </div>
+    <div class="form-row">
+        <label for="node-config-input-host"><i class="fa fa-laptop"></i> Host / IP</label>
+        <input type="text" id="node-config-input-host" placeholder="Host / IP">
+    </div>
+    <div id="input-devantech" hidden>
+        <div class="form-row">
+            <label for="node-config-input-port"><i class="fa fa-hashtag"></i> Port</label>
+            <input type="text" id="node-config-input-port" placeholder="17494">
+        </div>
+        <div class="form-row">
+            <label for="node-config-input-user"><i class="fa fa-user"></i> Username</label>
+            <input type="text" id="node-config-input-user" placeholder="admin">
+        </div>
+        <div class="form-row">
+            <label for="node-config-input-password"><i class="fa fa-user-secret"></i> Password</label>
+            <input type="password" id="node-config-input-password" placeholder="password">
+        </div>
+    </div>
+    <div id="input-teracom" hidden>
+    </div>
+    <div id="input-shelly" hidden>
+    </div>
+</script>
+
+<script type="text/markdown" data-help-name="config-relay-board">
+
+Select the used board from the _manufacturer_ dropbox. Then fill out the _ip address_ / _hostname_ of the board. Depending on the manufacturer of the board, you might need to fill out more information (e.g. _port_, _username_, _password_).
+
+
+### References
+
+- Devantech manual: https://www.robot-electronics.co.uk/files/eth008b.pdf
+- Shelly API docs: https://shelly-api-docs.shelly.cloud/
+- Teracom manual: https://delmation.nl/wp-content/uploads/manuals/UG_TCW181B-CM.pdf
+
+</script>

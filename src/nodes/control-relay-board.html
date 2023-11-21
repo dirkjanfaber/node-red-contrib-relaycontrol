@@ -1,0 +1,59 @@
+<script type="text/javascript">
+
+    RED.nodes.registerType('relay board',{
+        category: 'network',
+        color: '#08c',
+        defaults: {
+            name: {value:""},
+            board: {value:"", type: "config-relay-board"},
+            port: {value:"", required: true, validate: RED.validators.regex(/^[0-9]+$/)},
+        },
+        icon: "relaycontrol.svg",
+        inputs:1,
+        outputs:0,
+        label: function() {
+            return (this.name||"Relay board")+': '+this.port;
+        }
+    });
+</script>
+
+<script type="text/html" data-template-name="relay board">
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+    <div class="form-row">
+        <label for="node-input-board"><i class="fa fa-industry"></i> Board</label>
+        <input type="text" id="node-input-board" placeholder="Board">
+    </div>
+    <div class="form-row">
+        <label for="node-input-port"><i class="fa fa-hashtag"></i> Port / Relay</label>
+        <input type="text" id="node-input-port" placeholder="Port">
+    </div>
+</script>
+
+<script type="text/markdown" data-help-name="relay board">
+
+Control relay boards.
+
+### Inputs
+
+: payload (number|boolean): the command to send to the board. A `1`  or `true` means activate, a `0` or `false` means de-activate the relay port.
+
+## Status
+
+The node will show the status after an input has been received.
+
+### Configuration
+
+From the edit panel you will first need to define a board. Depending on the manufacturer, you will need to add some extra information. For all
+devices you will need to set the ip address / hostname of the device. Other than that, you might need to fill out credentials or the portnumber
+to connect to.
+
+### References
+
+- Devantech manual: https://www.robot-electronics.co.uk/files/eth008b.pdf
+- Shelly API docs: https://shelly-api-docs.shelly.cloud/
+- Teracom manual: https://delmation.nl/wp-content/uploads/manuals/UG_TCW181B-CM.pdf
+
+</script>

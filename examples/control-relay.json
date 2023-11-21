@@ -1,0 +1,139 @@
+[
+    {
+        "id": "eadc2cf4607e2e74",
+        "type": "relay board",
+        "z": "872c808b9ce8a482",
+        "name": "",
+        "board": "f4386b56ebb241fd",
+        "port": "1",
+        "x": 600,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "b1aaf756baf2bdec",
+        "type": "inject",
+        "z": "872c808b9ce8a482",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "1",
+        "payloadType": "num",
+        "x": 310,
+        "y": 140,
+        "wires": [
+            [
+                "eadc2cf4607e2e74"
+            ]
+        ]
+    },
+    {
+        "id": "d9a0a42d0e30a2ee",
+        "type": "inject",
+        "z": "872c808b9ce8a482",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "0",
+        "payloadType": "num",
+        "x": 310,
+        "y": 180,
+        "wires": [
+            [
+                "eadc2cf4607e2e74"
+            ]
+        ]
+    },
+    {
+        "id": "813110b6517c8d7a",
+        "type": "inject",
+        "z": "872c808b9ce8a482",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "x": 310,
+        "y": 220,
+        "wires": [
+            [
+                "eadc2cf4607e2e74"
+            ]
+        ]
+    },
+    {
+        "id": "9294c33f0b47d113",
+        "type": "inject",
+        "z": "872c808b9ce8a482",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "false",
+        "payloadType": "bool",
+        "x": 310,
+        "y": 260,
+        "wires": [
+            [
+                "eadc2cf4607e2e74"
+            ]
+        ]
+    },
+    {
+        "id": "f4386b56ebb241fd",
+        "type": "config-relay-board",
+        "name": "",
+        "manufacturer": "shelly",
+        "host": "192.168.2.10",
+        "port": "",
+        "user": "",
+        "password": ""
+    }
+]

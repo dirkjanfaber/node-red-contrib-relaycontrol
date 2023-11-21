@@ -1,0 +1,39 @@
+{
+  "name": "node-red-contrib-relaycontrol",
+  "version": "0.0.1",
+  "description": "Control relay boards",
+  "main": "index.js",
+  "scripts": {
+    "test": "standard --fix"
+  },
+  "keywords": [
+    "node-red",
+    "devantech",
+    "teracom",
+    "shelly",
+    "relay",
+    "victron"
+  ],
+  "author": "Dirk-Jan Faber <dfaber@victronenergy.com>",
+  "license": "MIT",
+  "node-red": {
+    "nodes": {
+      "config-board": "./src/nodes/config-board.js",
+      "control-relay-board": "./src/nodes/control-relay-board.js"
+    },
+    "version": ">=3.0.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dirkjanfaber/node-red-contrib-relaycontrol"
+  },
+  "dependencies": {
+    "axios": "^1.6.2"
+  },
+  "devDependencies": {
+    "standard": "^17.1.0"
+  },
+  "engines": {
+    "node": ">=14.17.4"
+  }
+}
