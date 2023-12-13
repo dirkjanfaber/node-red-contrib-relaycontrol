@@ -9,7 +9,7 @@ Tested with:
 
 # Flow
 
-A typical flow consists of a node injecting either a `0` / `1` or `true` / `false` into the node. The node will respond to switch the attached relay.
+A typical flow consists of a node injecting either a `0` / `1` or `true` / `false` into the node. The node will respond to switch the attached relay.  
 ![Flow](./doc/img/flow.png)
 
 # Configuration
